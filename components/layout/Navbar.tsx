@@ -52,7 +52,7 @@ export default function Navbar() {
           <div className="flex items-center gap-4">
             <Link
               href="/contact"
-              className="px-6 py-2 bg-cream text-forest rounded-full text-[10px] font-bold uppercase tracking-widest hover:scale-105 transition-luxury active:scale-95"
+              className="hidden md:inline-flex px-6 py-2 bg-cream text-forest rounded-full text-[10px] font-bold uppercase tracking-widest hover:scale-105 transition-luxury active:scale-95"
             >
               Book A Table
             </Link>
