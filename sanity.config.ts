@@ -6,7 +6,7 @@ export default defineConfig({
   name: 'default',
   title: 'Café Crema',
 
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || 'your_project_id',
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '',
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
 
   basePath: '/studio',
