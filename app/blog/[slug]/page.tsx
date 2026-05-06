@@ -1,70 +1,58 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
 import { ArrowLeft, Share2, Calendar, Clock } from 'lucide-react'
-import { getBlogPost } from '@/lib/sanity'
 import { notFound } from 'next/navigation'
-import CustomPortableText from '@/components/blog/CustomPortableText'
-import Image from 'next/image'
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  // Let it crash elegantly or mock if Sanity is down
-  let title = `Dispatch: ${params.slug} – Café Crema Journal`
-  try {
-    const post = await getBlogPost(params.slug)
-    if (post) title = `${post.title} | Café Crema Journal`
-  } catch (e) {}
+type BlogPost = {
+  title: string
+  publishedAt: string
+  author: string
+  readTime: string
+  excerpt: string
+  body: { heading?: string; text?: string; quote?: string }[]
+}
 
-  return {
-    title,
-    description: 'Explore our latest culinary dispatch from the Café Crema Journal.',
+const posts: Record<string, BlogPost> = {
+  'redefining-culinary-narratives': {
+    title: 'Redefining Culinary Narratives',
+    publishedAt: '2026-04-01T00:00:00Z',
+    author: 'Editorial Team',
+    readTime: '5 Min Read',
+    excerpt: 'A deep dive into the 2026 standard of luxury hospitality at Hotel Peninsula Grand.',
+    body: [
+      { text: 'At Café Crema, we believe that dining is not merely a necessity—it is an experience that engages all the senses. From the moment you step through our doors at Hotel Peninsula Grand, the warm amber light, the gentle hum of live music, and the aroma of freshly brewed coffee set the stage for something extraordinary.' },
+      { heading: 'The 2026 Standard' },
+      { quote: 'The digital evolution of hospitality is no longer just about information—it\'s about emotion.' },
+      { text: 'Our multi-cuisine philosophy ensures that every guest, regardless of their culinary background, finds something that resonates. From the robust spices of North Indian cuisine to the delicate balance of Continental classics, our kitchen is a stage upon which the world\'s flavours perform in harmony.' },
+      { heading: 'Crafting Every Detail' },
+      { text: 'Our commitment to artisanal quality extends from the plate to every pixel of our digital presence. Each dish is designed as a curated artifact—plated with the same precision a designer applies to a high-fashion collection. Our chefs collaborate with local farmers to source the freshest produce, ensuring that sustainability and excellence go hand in hand.' },
+      { text: 'The Sunday Brunch experience represents the pinnacle of what we offer: a slow-motion immersion into the art of dining, complete with unlimited pours, a rotating seasonal menu, and live acoustic performances that fill the atrium with warmth.' },
+      { heading: 'Open Around the Clock' },
+      { text: 'One of our proudest commitments is being open 24 hours, 7 days a week. Whether you arrive for an early morning business breakfast, a leisurely afternoon tea, a celebratory dinner, or a late-night craving, Café Crema is always ready to receive you with the same standard of excellence.' },
+    ]
   }
 }
 
-export default async function BlogPostPage({ params }: { params: { slug: string } }) {
-  let post = null;
-  try {
-    post = await getBlogPost(params.slug);
-  } catch(e) {
-    console.error("Sanity client fetch failed: ", e);
-  }
+export async function generateStaticParams() {
+  return Object.keys(posts).map((slug) => ({ slug }))
+}
 
-  if (!post) {
-    // If we're fully relying on Sanity, we just invoke notFound()
-    // but since we don't have the real CMS connection seeded here, we will render a graceful fallback.
-    // NOTE: In production, uncomment `notFound()`
-    // notFound();
-    post = {
-      title: "Redefining Culinary Narratives",
-      publishedAt: new Date().toISOString(),
-      author: "Editorial Team",
-      body: [
-        {
-          _type: 'block',
-          style: 'normal',
-          children: [{ _type: 'span', text: 'This dispatch serves as a dynamic portal into the heart of the 2026 Café Crema experience. Note: This is fallback text because Sanity returned no data for this slug.' }]
-        },
-        {
-          _type: 'block',
-          style: 'h2',
-          children: [{ _type: 'span', text: 'The 2026 Standard' }]
-        },
-        {
-          _type: 'block',
-          style: 'blockquote',
-          children: [{ _type: 'span', text: "The digital evolution of hospitality is no longer just about information—it's about emotion." }]
-        },
-        {
-          _type: 'block',
-          style: 'normal',
-          children: [{ _type: 'span', text: 'Our commitment to artisanal quality extends from the plate to the pixel. Each scroll is designed to evoke the same sense of warmth and excellence that you experience in our dining gallery.' }]
-        }
-      ]
-    }
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params
+  const post = posts[slug]
+  return {
+    title: post ? `${post.title} | Café Crema Journal` : `Dispatch – Café Crema Journal`,
+    description: post?.excerpt ?? 'Explore our latest culinary dispatch from the Café Crema Journal.',
   }
+}
 
-  const dateStr = post.publishedAt 
-    ? new Date(post.publishedAt).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })
-    : 'Ongoing'
+export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  const post = posts[slug]
+
+  if (!post) notFound()
+
+  const dateStr = new Date(post.publishedAt).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })
 
   return (
     <div className="min-h-screen bg-cream pt-32 lg:pt-40">
@@ -80,15 +68,9 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
          <article className="bg-sand border border-forest/10 overflow-hidden">
             {/* Post Header */}
             <header className="p-12 md:p-24 bg-forest text-cream relative overflow-hidden">
-              {post.coverImage && (
-                 <div className="absolute inset-0 opacity-30 mix-blend-overlay pointer-events-none">
-                    <Image src={post.coverImage} alt={post.title} fill className="object-cover" />
-                 </div>
-              )}
-              
               <div className="relative z-10 flex flex-wrap items-center gap-8 text-[10px] font-bold uppercase tracking-[0.3em] text-gold-muted mb-10">
                 <span className="flex items-center gap-2"><Calendar size={14} /> {dateStr}</span>
-                <span className="flex items-center gap-2"><Clock size={14} /> 5 Min Read</span>
+                <span className="flex items-center gap-2"><Clock size={14} /> {post.readTime}</span>
               </div>
 
               <h1 className="relative z-10 text-5xl md:text-7xl lg:text-8xl font-medium mb-12 tracking-tight leading-[0.9]">
@@ -101,7 +83,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                     CC
                   </div>
                   <div>
-                    <p className="text-xs font-bold uppercase tracking-widest leading-none mb-1 text-cream">{post.author || 'Editorial Team'}</p>
+                    <p className="text-xs font-bold uppercase tracking-widest leading-none mb-1 text-cream">{post.author}</p>
                     <p className="text-[10px] opacity-60 italic tracking-widest uppercase">Chef &amp; Curator</p>
                   </div>
                 </div>
@@ -111,9 +93,17 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
               </div>
             </header>
 
-            {/* Post Content parsed by PortableText */}
+            {/* Post Content */}
             <div className="p-12 md:p-24 max-w-4xl mx-auto">
-               <CustomPortableText value={post.body} />
+              {post.body.map((block, i) => {
+                if (block.heading) {
+                  return <h2 key={i} className="text-4xl md:text-5xl font-medium tracking-tight text-forest mt-20 mb-8 font-heading">{block.heading}</h2>
+                }
+                if (block.quote) {
+                  return <blockquote key={i} className="my-12 pl-8 border-l-4 border-gold-muted italic text-xl md:text-2xl font-light text-forest tracking-tight">{block.quote}</blockquote>
+                }
+                return <p key={i} className="text-lg md:text-xl text-forest/70 font-light leading-relaxed mb-8">{block.text}</p>
+              })}
             </div>
          </article>
 
