@@ -39,7 +39,7 @@ export default function Highlights() {
   }, { scope: container })
 
   return (
-    <section ref={container} className="bg-cream py-32 overflow-hidden">
+    <section ref={container} className="bg-cream py-24 md:py-48 overflow-hidden">
       <div className="page-wrapper">
         
         {/* Top Bento Row */}
@@ -49,7 +49,7 @@ export default function Highlights() {
           <div className="md:col-span-12 lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-12 border-b border-forest/10 pb-12">
             <div className="reveal md:pr-8">
               <span className="text-meta mb-12 block text-forest/50">01 / GENESIS</span>
-              <h2 className="text-5xl md:text-7xl font-medium leading-[1.1] md:leading-[0.95] mb-12 tracking-tight">
+              <h2 className="text-4xl md:text-6xl lg:text-7xl font-medium leading-[1.1] md:leading-[0.95] mb-12 tracking-tight">
                 Global Soul, <br className="hidden md:block" />
                 <span className="font-heading italic font-light text-forest/80 block mt-2">Local Precision.</span>
               </h2>
@@ -101,7 +101,7 @@ export default function Highlights() {
           {/* 24/7 Green Overlay Box */}
           <div className="absolute top-12 left-12 bg-forest p-10 text-cream max-w-[320px] transition-luxury hover:-translate-y-2">
             <span className="text-meta text-cream/60 mb-6 block">03 / ACCESS</span>
-            <div className="text-6xl font-medium leading-none mb-6">
+            <div className="text-5xl md:text-6xl font-medium leading-none mb-6">
               <span className="font-heading italic font-light italic text-4xl block mb-2">ALWAYS OPEN</span>
               24/7
             </div>

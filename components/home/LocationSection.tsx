@@ -5,12 +5,12 @@ import { MapPin, Phone, Clock } from 'lucide-react'
 export default function LocationSection() {
   return (
     <section className="bg-cream py-32 border-t border-forest/10">
-      <div className="page-wrapper grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <div className="page-wrapper pt-24 md:pt-48 pb-24 md:pb-32 grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
         
         {/* Info Side */}
-        <div className="reveal">
-          <span className="text-meta mb-10 block">CONTACT & ACCESS</span>
-          <h2 className="text-5xl md:text-7xl font-medium leading-none md:leading-[0.95] mb-16">
+        <div className="lg:col-span-6">
+          <span className="text-meta text-forest/40 mb-10 block tracking-[0.6em]">VISIT US</span>
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-medium leading-none md:leading-[0.95] mb-16">
             Visit The <br />
             <span className="font-heading italic">Sanctuary.</span>
           </h2>

@@ -91,8 +91,8 @@ export default function SundayBrunchPage() {
 
            <div className="lg:col-span-5 p-12 lg:px-24 flex flex-col justify-center">
               <div className="mb-16">
-                 <p className="text-8xl md:text-[110px] font-medium text-forest italic leading-none tracking-tight">₹1,409</p>
-                 <p className="text-sm font-bold uppercase tracking-[0.6em] text-gold-muted mt-4">Plus taxes per person</p>
+                 <p className="text-8xl md:text-[110px] font-medium text-forest italic leading-none tracking-tight">₹1,409 + taxes</p>
+                 <p className="text-sm font-bold uppercase tracking-[0.6em] text-gold-muted mt-4">Per person</p>
               </div>
               
               <ul className="space-y-6">

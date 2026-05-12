@@ -47,10 +47,10 @@ export default function MenuPreview() {
   }, { scope: container })
 
   return (
-    <section ref={container} className="bg-cream py-32 md:py-48">
+    <section ref={container} className="bg-cream py-24 md:py-48">
       <div className="page-wrapper">
         <div className="flex flex-col md:flex-row justify-between items-baseline mb-24 reveal">
-          <h2 className="text-6xl md:text-7xl font-medium leading-none mb-4 md:mb-0">
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-medium leading-none mb-4 md:mb-0">
             The Current <span className="font-heading italic">Edit.</span>
           </h2>
           <span className="text-meta text-forest/30 tracking-[0.2em]">COLLECTION NO. 04 / 2026</span>

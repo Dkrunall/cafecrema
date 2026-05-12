@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import LocationSection from '@/components/home/LocationSection'
 
 export const metadata: Metadata = {
@@ -11,6 +12,36 @@ type Dish = { name: string; description: string; price: number; isVeg: boolean; 
 type MenuData = Record<string, Dish[]>
 
 const menuData: MenuData = {
+  'Buffet Experiences': [
+    { 
+      name: 'Breakfast Buffet', 
+      description: 'Live Counter: Egg to Order, Dosa, Poori, Paratha, Uttapam, Waffle, Pancake. Buffet: Sambhar, Idli, Vada, Poha, Upma, Aloo Bhaji, Chicken Sausages, Boiled Egg, Bread Counter, Salad & more.', 
+      price: 660, 
+      isVeg: false, 
+      isBestSeller: true 
+    },
+    { 
+      name: 'Lunch Buffet', 
+      description: 'Soup (Veg/Non-Veg), 2 Live Counters (Chef Choice), 6 Cold Salads, Cheese Platter, 4 Non-Veg & 5 Veg Mains, Dal, Rice/Noodles, 8 Desserts & Fresh Fruits.', 
+      price: 1079, 
+      isVeg: false, 
+      isBestSeller: true 
+    },
+    { 
+      name: 'Dinner Buffet', 
+      description: 'Soup (Veg/Non-Veg), 3 Live Counters (Chef Choice), 6 Cold Salads, Cheese Platter, 4 Non-Veg & 5 Veg Mains, Dal, Rice/Noodles, 8 Desserts & Fresh Fruits.', 
+      price: 1270, 
+      isVeg: false, 
+      isBestSeller: true 
+    },
+    { 
+      name: 'Sunday Brunch', 
+      description: 'Full Multi-Cuisine Buffet with Live Performance, Welcome Sips, Artisanal Cocktails, and Handcrafted Dessert Stations. (Sundays Only, 12 PM - 3:30 PM)', 
+      price: 1409, 
+      isVeg: false, 
+      isBestSeller: true 
+    },
+  ],
   'North Indian': [
     { name: 'Dal Makhani', description: 'Slow-cooked black lentils in a rich tomato and cream base', price: 320, isVeg: true, isBestSeller: true },
     { name: 'Paneer Tikka Masala', description: 'Chargrilled cottage cheese in a smoky masala gravy', price: 380, isVeg: true },
@@ -65,70 +96,91 @@ const categoriesKeys = Object.keys(menuData)
 
 export default function MenuPage() {
   return (
-    <div className="min-h-screen bg-cream text-forest pt-32">
-      
-      {/* Header Section */}
-      <section className="page-wrapper pt-32 pb-40 border-b border-forest/10">
-        <div className="max-w-5xl">
-           <span className="section-label">Culinary Archive 2026</span>
-           <h1 className="text-6xl md:text-8xl lg:text-[120px] font-medium leading-[0.85] tracking-tight mb-16">
-              The <br/>
-              <span className="font-heading italic text-forest/30">Gourmet</span> <br/>
-              Catalogue
-           </h1>
-           <p className="text-xl text-forest/50 leading-relaxed font-light italic max-w-2xl">
-              A meticulously curated multi-cuisine narrative spanning the continents, served in the heart of Andheri East.
-           </p>
+    <div className="min-h-screen bg-cream text-forest">
+
+      {/* ── Cinematic Hero ── */}
+      <section className="relative min-h-[100vh] flex items-end overflow-hidden">
+        <Image
+          src="/interior/DSC03166.jpg"
+          alt="Café Crema Menu"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-forest/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-forest/80 via-transparent to-forest/20" />
+        <div className="absolute inset-0 bg-gradient-to-r from-forest/60 via-transparent to-transparent" />
+        <div className="relative z-10 page-wrapper pb-24 md:pb-32 w-full">
+          <span className="text-meta text-cream/40 mb-10 block tracking-[0.6em]">CULINARY ARCHIVE 2026</span>
+          <h1 className="text-5xl md:text-8xl lg:text-9xl font-medium leading-[0.85] tracking-tight !text-cream mb-8">
+            The Gourmet <br />
+            <span className="font-heading italic font-light !text-cream/40">Catalogue.</span>
+          </h1>
+          <p className="text-xl !text-cream/60 font-light italic max-w-2xl leading-relaxed">
+            A meticulously curated multi-cuisine narrative spanning the continents, served in the heart of Andheri East.
+          </p>
         </div>
       </section>
 
       {/* Categories Navigation */}
-      <div className="sticky top-20 md:top-24 bg-cream/95 backdrop-blur-xl border-b border-forest/10 z-40 overflow-x-auto whitespace-nowrap">
-         <div className="page-wrapper h-16 flex items-center gap-12">
-            {categoriesKeys.map((cat) => (
-              <a 
-                key={cat} 
-                href={`#${cat.replace(/\s+/g, '-').toLowerCase()}`}
-                className="text-[10px] font-bold uppercase tracking-[0.3em] text-forest/40 hover:text-forest transition-all"
-              >
-                {cat}
-              </a>
-            ))}
+      <div className="sticky top-20 md:top-24 bg-cream/95 backdrop-blur-xl border-b border-forest/10 z-40 overflow-hidden">
+         <div className="page-wrapper h-16">
+            <div className="flex items-center gap-10 md:gap-12 h-full overflow-x-auto scrollbar-hide w-full" style={{ maskImage: 'linear-gradient(to right, black 85%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to right, black 85%, transparent 100%)' }}>
+               {categoriesKeys.map((cat) => (
+                 <a 
+                   key={cat} 
+                   href={`#${cat.replace(/\s+/g, '-').toLowerCase()}`}
+                   className="text-[10px] font-bold uppercase tracking-[0.3em] text-forest/40 hover:text-forest transition-all shrink-0"
+                 >
+                   {cat}
+                 </a>
+               ))}
+            </div>
          </div>
       </div>
 
       {/* Menu Grid */}
-      <section className="page-wrapper py-40">
-        <div className="space-y-48">
+      <section className="page-wrapper py-24 md:py-40">
+        <div className="space-y-32 md:space-y-48">
            {categoriesKeys.map((cat, i) => (
              <div key={i} id={cat.replace(/\s+/g, '-').toLowerCase()} className="scroll-mt-48 group">
-                <div className="flex items-end justify-between mb-24 border-b border-forest/10 pb-12">
+                <div className="flex items-end justify-between mb-16 md:mb-24 border-b border-forest/10 pb-12">
                    <div>
                       <span className="text-meta mb-4 block">Ref 0{i + 1}</span>
-                      <h2 className="text-6xl md:text-8xl font-medium text-forest tracking-tight leading-none">{cat}</h2>
+                      <h2 className="text-4xl md:text-6xl lg:text-8xl font-medium text-forest tracking-tight leading-none flex flex-wrap items-center gap-4">
+                        <span>{cat}</span>
+                        {cat === 'Buffet Experiences' && (
+                          <span className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-gold-muted border border-gold-muted/20 px-3 py-1 mt-2 md:mt-0">New Highlight</span>
+                        )}
+                      </h2>
                    </div>
                    <span className="text-[120px] font-medium text-forest/[0.04] leading-none select-none hidden lg:block font-heading italic">0{i+1}</span>
                 </div>
                 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-px bg-forest/10 border border-forest/10">
+                <div className={`grid grid-cols-1 ${cat === 'Buffet Experiences' ? 'lg:grid-cols-1' : 'lg:grid-cols-2'} gap-px bg-forest/10 border border-forest/10`}>
                    {menuData[cat].map((dish, j) => (
-                     <article key={j} className="bg-cream p-12 group/article hover:bg-sand transition-all duration-500">
-                        <div className="flex justify-between items-start gap-12 mb-8">
+                     <article key={j} className={`${cat === 'Buffet Experiences' ? 'bg-sand/20' : 'bg-cream'} p-12 group/article hover:bg-sand transition-all duration-500`}>
+                        <div className="flex flex-col md:flex-row justify-between items-start gap-12 mb-8">
                            <div className="flex-grow">
                               <div className="flex items-center gap-4 mb-4">
                                  <div className={`w-2 h-2 shrink-0 ${dish.isVeg ? 'bg-green-600' : 'bg-red-500'}`} />
-                                 <h3 className="text-xl md:text-2xl font-medium text-forest leading-none tracking-tight">
+                                 <h3 className="text-xl md:text-3xl font-medium text-forest leading-none tracking-tight">
                                    {dish.name}
                                  </h3>
                               </div>
-                              <p className="text-sm font-light text-forest/40 leading-relaxed max-w-sm italic">
+                              <p className={`text-sm font-light text-forest/60 leading-relaxed italic ${cat === 'Buffet Experiences' ? 'max-w-4xl' : 'max-w-sm'}`}>
                                  {dish.description}
                               </p>
                            </div>
                            <div className="flex flex-col items-end shrink-0">
-                              <span className="text-2xl font-medium text-forest tracking-tight">₹{dish.price}</span>
+                              <div className="flex flex-col items-end">
+                                <span className="text-3xl font-medium text-forest tracking-tight">₹{dish.price}</span>
+                                <span className="text-[10px] font-bold uppercase tracking-widest text-forest/30">
+                                  {cat === 'Buffet Experiences' ? 'Plus Taxes' : 'All Inclusive'}
+                                </span>
+                              </div>
                               {dish.isBestSeller && (
-                                <span className="mt-4 text-[8px] font-bold uppercase tracking-widest text-gold-muted">Best Seller</span>
+                                <span className="mt-4 text-[8px] font-bold uppercase tracking-widest text-gold-muted border border-gold-muted/20 px-2 py-1">Featured Selection</span>
                               )}
                            </div>
                         </div>
@@ -145,3 +197,4 @@ export default function MenuPage() {
     </div>
   )
 }
+

@@ -2,18 +2,23 @@
 
 @theme {
   /* Instagram Palette - Warm Beige & Espresso */
-  --color-cream: #F3E9DB;         /* Warm Peach Beige (Logo Base) */
-  --color-forest: #1E1814;        /* Deep Espresso (replaces green for text/accents) */
-  --color-forest-muted: #362B25;  /* Dark Mocha */
-  --color-sand: #DBC6AF;          /* Warm Latte (Highlights Background) */
-  --color-gold-muted: #B88A6F;    /* Soft warm accent */
-  
-  --color-obsidian: #09090b;      
-  --color-stark: #fafafa;         
-  
+  --color-cream: #F3E9DB;
+  /* Warm Peach Beige (Logo Base) */
+  --color-forest: #1E1814;
+  /* Deep Espresso (replaces green for text/accents) */
+  --color-forest-muted: #362B25;
+  /* Dark Mocha */
+  --color-sand: #DBC6AF;
+  /* Warm Latte (Highlights Background) */
+  --color-gold-muted: #B88A6F;
+  /* Soft warm accent */
+
+  --color-obsidian: #09090b;
+  --color-stark: #fafafa;
+
   --font-heading: var(--font-playfair), serif;
   --font-body: var(--font-playfair), serif;
-  
+
   --radius-pill: 9999px;
   --radius-sharp: 0rem;
 }
@@ -48,7 +53,10 @@ body {
 }
 
 /* Typography Utilities */
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   @apply font-heading tracking-tight text-forest;
 }
 
@@ -68,7 +76,7 @@ h1, h2, h3, h4 {
 
 /* High-End Utilities */
 @utility text-huge {
-  @apply text-6xl md:text-8xl lg:text-[110px] font-medium leading-[0.95] tracking-[-0.03em];
+  @apply text-5xl md:text-8xl lg:text-[110px] font-medium leading-[0.95] tracking-[-0.03em];
 }
 
 @utility transition-luxury {
@@ -83,9 +91,11 @@ h1, h2, h3, h4 {
 ::-webkit-scrollbar {
   width: 4px;
 }
+
 ::-webkit-scrollbar-track {
   background: var(--color-cream);
 }
+
 ::-webkit-scrollbar-thumb {
   background: var(--color-forest);
 }

@@ -4,7 +4,7 @@ import { GoogleAnalytics } from '@next/third-parties/google'
 import SchemaOrg from '@/components/seo/SchemaOrg'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
-import WhatsAppButton from '@/components/layout/WhatsAppButton'
+import FloatingActions from '@/components/layout/FloatingActions'
 import './globals.css'
 
 const playfair = Playfair_Display({
@@ -39,14 +39,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         <SchemaOrg />
         <Navbar />
-        
+
         <main className="relative">
           {children}
         </main>
-        
+
         <Footer />
-        <WhatsAppButton />
-        
+        <FloatingActions />
+
         <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || 'G-XXXXXXXXXX'} />
       </body>
     </html>

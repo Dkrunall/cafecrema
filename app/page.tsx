@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import Hero from '@/components/home/Hero'
 import TypographyStrip from '@/components/home/TypographyStrip'
 import Highlights from '@/components/home/Highlights'
+import DailyBuffet from '@/components/home/DailyBuffet'
 import SundayRitual from '@/components/home/SundayRitual'
 import MenuPreview from '@/components/home/MenuPreview'
 import LocationSection from '@/components/home/LocationSection'
@@ -18,6 +19,7 @@ export default function Home() {
       <Hero />
       <TypographyStrip />
       <Highlights />
+      <DailyBuffet />
       <SundayRitual />
       <MenuPreview />
       <LocationSection />
