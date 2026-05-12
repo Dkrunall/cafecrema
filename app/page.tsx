@@ -4,7 +4,6 @@ import TypographyStrip from '@/components/home/TypographyStrip'
 import Highlights from '@/components/home/Highlights'
 import DailyBuffet from '@/components/home/DailyBuffet'
 import SundayRitual from '@/components/home/SundayRitual'
-import MenuPreview from '@/components/home/MenuPreview'
 import LocationSection from '@/components/home/LocationSection'
 
 export const metadata: Metadata = {
@@ -21,7 +20,6 @@ export default function Home() {
       <Highlights />
       <DailyBuffet />
       <SundayRitual />
-      <MenuPreview />
       <LocationSection />
     </div>
   )

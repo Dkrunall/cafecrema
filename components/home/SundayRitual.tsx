@@ -43,13 +43,13 @@ export default function SundayRitual() {
 
         {/* Content Side */}
         <div className="ritual-reveal md:pl-12">
-          <span className="text-meta mb-10 block tracking-[0.5em] text-forest/50">EXCLUSIVE WEEKLY SERIES</span>
+          <span className="text-meta mb-10 block tracking-[0.5em] text-forest/50">EVERY SUNDAY | 12:00 PM – 3:30 PM</span>
           <h2 className="text-5xl md:text-7xl lg:text-8xl font-medium leading-none md:leading-[0.95] mb-12 tracking-tight">
             The Sunday <br />
-            <span className="font-heading italic font-light">Buffet.</span>
+            <span className="font-heading italic font-light">Brunch.</span>
           </h2>
           <p className="text-lg md:text-xl text-forest/70 font-light leading-relaxed mb-16 max-w-lg italic">
-            This is not a meal, but a slow-motion immersion into the art of the brunch. Unlimited vintage pours and a rotating menu of atelier-exclusive creations.
+            Every Sunday. Unlimited multi-cuisine buffet + live music. Starting at ₹1,409 + taxes per person. The most popular Sunday brunch in Andheri East — book your table before it fills up.
           </p>
 
           <div className="flex flex-wrap gap-8 items-center">
@@ -57,13 +57,13 @@ export default function SundayRitual() {
               href="/contact"
               className="px-10 py-4 bg-forest text-cream text-[10px] font-bold uppercase tracking-widest transition-luxury hover:bg-forest-muted"
             >
-              Reserve Now
+              Reserve a Table
             </Link>
             <Link
-              href="/events"
+              href="/sunday-brunch"
               className="text-[10px] font-bold uppercase tracking-[0.4em] border-b border-forest/20 pb-2 hover:border-forest transition-colors"
             >
-              View The Calendar
+              View Brunch Menu
             </Link>
           </div>
         </div>

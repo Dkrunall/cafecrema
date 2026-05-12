@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import LocationSection from '@/components/home/LocationSection'
 
+import PageHero from '@/components/layout/PageHero'
+
 export const metadata: Metadata = {
   title: 'Menu – Café Crema Restaurant | Andheri East Mumbai',
   description: "Explore Café Crema's full multi-cuisine menu: North Indian, Chinese, Continental, Asian, Beverages & Desserts. Dine-in & Takeaway. Andheri East.",
@@ -96,31 +98,16 @@ const categoriesKeys = Object.keys(menuData)
 
 export default function MenuPage() {
   return (
-    <div className="min-h-screen bg-cream text-forest">
+    <div className="min-h-screen bg-cream text-forest selection:bg-forest selection:text-cream">
 
       {/* ── Cinematic Hero ── */}
-      <section className="relative min-h-[100vh] flex items-end overflow-hidden">
-        <Image
-          src="/interior/DSC03166.jpg"
-          alt="Café Crema Menu"
-          fill
-          className="object-cover"
-          priority
-        />
-        <div className="absolute inset-0 bg-forest/40" />
-        <div className="absolute inset-0 bg-gradient-to-t from-forest/80 via-transparent to-forest/20" />
-        <div className="absolute inset-0 bg-gradient-to-r from-forest/60 via-transparent to-transparent" />
-        <div className="relative z-10 page-wrapper pb-24 md:pb-32 w-full">
-          <span className="text-meta text-cream/40 mb-10 block tracking-[0.6em]">CULINARY ARCHIVE 2026</span>
-          <h1 className="text-5xl md:text-8xl lg:text-9xl font-medium leading-[0.85] tracking-tight !text-cream mb-8">
-            The Gourmet <br />
-            <span className="font-heading italic font-light !text-cream/40">Catalogue.</span>
-          </h1>
-          <p className="text-xl !text-cream/60 font-light italic max-w-2xl leading-relaxed">
-            A meticulously curated multi-cuisine narrative spanning the continents, served in the heart of Andheri East.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        subtitle="OUR MENU | MULTI-CUISINE DINING"
+        title={<>Our <br /><span className="font-heading italic font-light !text-cream/40">Menu.</span></>}
+        description="North Indian · Chinese · Continental · Asian · Beverages · Desserts — freshly prepared at Hotel Peninsula Grand, Andheri East, Mumbai."
+        image="/interior/DSC03166.jpg"
+        imageAlt="Café Crema Menu"
+      />
 
       {/* Categories Navigation */}
       <div className="sticky top-20 md:top-24 bg-cream/95 backdrop-blur-xl border-b border-forest/10 z-40 overflow-hidden">
@@ -159,8 +146,8 @@ export default function MenuPage() {
                 
                 <div className={`grid grid-cols-1 ${cat === 'Buffet Experiences' ? 'lg:grid-cols-1' : 'lg:grid-cols-2'} gap-px bg-forest/10 border border-forest/10`}>
                    {menuData[cat].map((dish, j) => (
-                     <article key={j} className={`${cat === 'Buffet Experiences' ? 'bg-sand/20' : 'bg-cream'} p-12 group/article hover:bg-sand transition-all duration-500`}>
-                        <div className="flex flex-col md:flex-row justify-between items-start gap-12 mb-8">
+                     <article key={j} className={`${cat === 'Buffet Experiences' ? 'bg-sand/20' : 'bg-cream'} p-6 md:p-12 group/article hover:bg-sand transition-all duration-500`}>
+                        <div className="flex flex-col md:flex-row justify-between items-start gap-6 md:gap-12 mb-8">
                            <div className="flex-grow">
                               <div className="flex items-center gap-4 mb-4">
                                  <div className={`w-2 h-2 shrink-0 ${dish.isVeg ? 'bg-green-600' : 'bg-red-500'}`} />

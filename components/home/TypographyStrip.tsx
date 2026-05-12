@@ -16,7 +16,7 @@ export default function TypographyStrip() {
     })
   }, { scope: container })
 
-  const marqueeText = "L'ATELIER / CAFE CREMA // THE ART OF TASTE // LUXURY DINING // NO. 012 COLLECTION // ARCHITECTURAL FLAVORS // EST. 2024 // "
+  const marqueeText = "CAFÉ CREMA, ANDHERI EAST // ALL-DAY DINING // SUNDAY BRUNCH WITH LIVE MUSIC // MULTI-CUISINE BUFFET // HOTEL PENINSULA GRAND // OPEN 24 HOURS // BUFFET RESTAURANT MUMBAI // SAKINAKA JUNCTION // "
 
   return (
     <section ref={container} className="bg-sand py-4 border-y border-forest/10 overflow-hidden whitespace-nowrap">

@@ -2,18 +2,20 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 
+import PageHero from '@/components/layout/PageHero'
+
 export const metadata: Metadata = {
   title: 'Events & Private Dining – Café Crema | Andheri East Mumbai',
-  description: "Host your corporate lunch, birthday dinner, or private celebration at Café Crema. Mumbai's top venue for events in Andheri East. Enquire now.",
+  description: "Host your corporate lunch, birthday dinner, or private celebration at Café Crema. Live music Sundays. Private dining Andheri East. Call +91 99302 71349.",
   keywords: ['private dining andheri', 'corporate lunch mumbai']
 }
 
 const events = [
   {
     id: '01',
-    title: 'Corporate Excellence',
-    subtitle: 'Business Gatherings',
-    desc: 'Located in Andheri\'s business heart within Hotel Peninsula Grand, we offer bulk billing, private sections, and curated set menus for professional gatherings of any scale.',
+    title: 'Corporate Lunches & Client Dinners.',
+    subtitle: '01 / CORPORATE DINING',
+    desc: 'Café Crema is a preferred choice for business dining in Andheri East. Comfortable seating, professional service, a full multi-cuisine menu, and private billing arrangements — ideal for team lunches, client dinners, and leadership gatherings. Located at Hotel Peninsula Grand, MIDC Andheri.',
     features: ['Private Enclaves', 'Bulk Billing', 'A/V Support', 'Custom Menus'],
     image: '/interior/DSC03148.jpg',
     color: 'bg-forest',
@@ -22,9 +24,9 @@ const events = [
   },
   {
     id: '02',
-    title: 'Legendary Celebrations',
-    subtitle: 'Social Events',
-    desc: 'Birthdays, anniversaries, and family reunions curated with localized warmth and gourmet artistry in our premier all-day dining space. Every detail, perfected.',
+    title: 'Birthdays, Anniversaries & Family Gatherings.',
+    subtitle: '02 / CELEBRATIONS',
+    desc: 'Celebrate your special moments at Café Crema. We help make birthdays, anniversaries, and family gatherings unforgettable — with personalised décor, a dedicated host, live music options, and the best multi-cuisine spread in Andheri East.',
     features: ['Personalized Décor', 'Dedicated Host', 'Live Music', 'Custom Cake'],
     image: '/interior/DSC03169.jpg',
     color: 'bg-gold-muted',
@@ -35,31 +37,16 @@ const events = [
 
 export default function EventsPage() {
   return (
-    <div className="min-h-screen bg-cream text-forest">
+    <div className="min-h-screen bg-cream text-forest selection:bg-forest selection:text-cream">
 
       {/* ── Cinematic Hero ── */}
-      <section className="relative min-h-[100vh] flex items-end overflow-hidden">
-        <Image
-          src="/interior/DSC03177.jpg"
-          alt="Café Crema Events"
-          fill
-          className="object-cover"
-          priority
-        />
-        <div className="absolute inset-0 bg-forest/40" />
-        <div className="absolute inset-0 bg-gradient-to-t from-forest/80 via-transparent to-forest/20" />
-        <div className="absolute inset-0 bg-gradient-to-r from-forest/60 via-transparent to-transparent" />
-        <div className="relative z-10 page-wrapper pb-24 md:pb-32 w-full">
-          <span className="text-meta text-cream/40 mb-10 block tracking-[0.6em]">INVENTORY & OCCASIONS</span>
-          <h1 className="text-5xl md:text-8xl lg:text-9xl font-medium leading-[0.85] tracking-tight !text-cream mb-8">
-            Private <br />
-            <span className="font-heading italic font-light !text-cream/40">Gala &amp; Corporate.</span>
-          </h1>
-          <p className="text-xl !text-cream/60 font-light italic max-w-xl leading-relaxed">
-            Craft extraordinary moments with a team dedicated to flawless execution.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        subtitle="EVENTS & EXPERIENCES"
+        title={<>More Than <br /><span className="font-heading italic font-light !text-cream/40">a Meal.</span></>}
+        description="From our legendary Sunday Brunch to private corporate dinners — Café Crema at Hotel Peninsula Grand is Andheri East's go-to venue for celebrations, business lunches, and events worth remembering."
+        image="/interior/DSC03177.jpg"
+        imageAlt="Café Crema Events"
+      />
 
       {/* ── Event Cards ── */}
       <section className="py-24 md:py-48 page-wrapper">
@@ -135,8 +122,8 @@ export default function EventsPage() {
       <section className="py-24 md:py-40 page-wrapper text-center">
         <span className="text-meta text-forest/30 mb-16 block tracking-[0.6em]">PLAN YOUR EVENT</span>
         <h2 className="text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight leading-tight mb-16">
-          Let's create something <br />
-          <span className="font-heading italic font-light text-forest/30">unforgettable.</span>
+          Plan Your Event at <br />
+          <span className="font-heading italic font-light text-forest/30">Café Crema, Andheri East.</span>
         </h2>
         <div className="flex flex-col md:flex-row items-center justify-center gap-8">
           <Link

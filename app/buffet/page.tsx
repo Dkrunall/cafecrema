@@ -1,167 +1,203 @@
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
+import LocationSection from '@/components/home/LocationSection'
+
+import PageHero from '@/components/layout/PageHero'
 
 export const metadata: Metadata = {
-  title: 'Buffet Experiences',
-  description: 'Explore our daily buffet offerings at Café Crema. From the grand Sunday Brunch to our 24/7 global spreads.',
+  title: 'Buffet Restaurant in Andheri East – Multi-Cuisine | Café Crema Mumbai',
+  description: 'Enjoy our legendary multi-cuisine buffet at Café Crema, Andheri East. North Indian, Chinese, Continental, Asian, Desserts & more. Dine-in 24/7 at Hotel Peninsula Grand. Call +91 99302 71349.',
+  keywords: ['buffet restaurant andheri east', 'buffet restaurant mumbai', 'multi-cuisine buffet andheri', 'hotel buffet andheri east'],
+  alternates: { canonical: 'https://cafecrema.in/buffet' },
 }
 
-const buffets = [
-  {
-    id: 'sunday-brunch',
-    type: 'Sunday Brunch',
-    time: '12:00 PM – 03:30 PM',
-    price: '₹1409 + taxes',
-    desc: 'A grand celebration of global flavours featuring unlimited multi-cuisine spreads, premium pours, and live music. The ultimate weekend ritual for the discerning palate.',
-    highlights: ['Live Music', 'Premium Pours', 'Dessert Atelier', 'International Counters'],
-    image: '/interior/sunday-brunch.png',
-    color: 'bg-gold-muted',
-    textColor: 'text-cream',
-  },
-  {
-    id: 'breakfast',
-    type: 'Morning Breakfast',
-    time: '07:30 AM – 10:30 AM',
-    price: '₹660 + taxes',
-    desc: 'Begin your day with an artisanal selection of global classics. From live egg stations to traditional Indian delicacies, our breakfast is designed for a refined start.',
-    highlights: ['Live Egg Station', 'Fresh Artisanal Breads', 'Regional Specialties', 'Fresh Juices'],
-    image: '/interior/DSC03166.jpg',
-    color: 'bg-sand/40',
-    textColor: 'text-forest',
-  },
-  {
-    id: 'lunch',
-    type: 'Global Lunch',
-    time: '12:30 PM – 03:30 PM',
-    price: '₹1079 + taxes',
-    desc: 'A meticulously curated lunch experience featuring a rotation of international favorites. Perfect for business gatherings or a sophisticated mid-day break.',
-    highlights: ['Multi-cuisine Spread', 'Live Counters', 'Cheese Platter', 'Decadent Desserts'],
-    image: '/interior/DSC03177.jpg',
-    color: 'bg-forest',
-    textColor: 'text-cream',
-  },
-  {
-    id: 'dinner',
-    type: 'Grand Dinner',
-    time: '07:30 PM – 11:30 PM',
-    price: '₹1270 + taxes',
-    desc: 'As the evening settles, enjoy our grand international dinner buffet. A symphony of spices and flavors from across the globe, served in an elegant atmosphere.',
-    highlights: ['Grand International Buffet', '3 Live Chef Stations', 'Gourmet Selection', 'Atelier Desserts'],
-    image: '/interior/DSC03168.jpg',
-    color: 'bg-sand/20',
-    textColor: 'text-forest',
-  },
+const cuisines = [
+  { title: 'North Indian', body: 'Curries, biryanis, dals, tandoor breads — the classics, done with care. Dal Makhani, Butter Chicken, Paneer Tikka, Rogan Josh, and more.' },
+  { title: 'Chinese', body: 'Indo-Chinese done right. Hakka noodles, Schezwan fried rice, Dim Sum, Kung Pao Chicken, Hot & Sour Soup.' },
+  { title: 'Continental', body: 'European-inspired plates: risottos, pasta, grilled proteins, salads, and freshly baked breads.' },
+  { title: 'Asian', body: 'Thai, Japanese, and pan-Asian favourites — Pad Thai, Miso Ramen, Green Curry, Gyoza, Banh Mi.' },
+  { title: 'Dessert Station', body: 'Gulab Jamun, Chocolate Fondant, Kulfi Trio, Mango Panna Cotta, Tiramisu, and a rotating daily sorbet.' },
+  { title: 'Live Stations', body: 'Chef-attended live counters during peak hours — watch your food being prepared fresh in front of you.' },
+]
+
+const whyUs = [
+  { title: 'Freshly Replenished', body: 'Every dish is restocked throughout the meal — no waiting, no scraping the bottom of cold dishes.' },
+  { title: 'Vegetarian & Non-Veg Options', body: 'Every cuisine category includes both — clearly labelled, always in good supply.' },
+  { title: 'In-House Kitchen', body: 'Everything is made fresh in our kitchen at Hotel Peninsula Grand. No frozen shortcuts.' },
+  { title: 'Available 24 Hours', body: "Our buffet operates across meal periods — breakfast, lunch, dinner, and everything in between. We're open 24/7." },
+  { title: 'Easy to Reach', body: '2-minute walk from Sakinaka Metro Station. Free parking on-site. Serving guests from Andheri, Kurla, Powai, and Ghatkopar.' },
+]
+
+const pricing = [
+  { label: 'Breakfast Buffet', time: '07:30 AM – 10:30 AM', price: '₹660', note: 'Plus Taxes' },
+  { label: 'Lunch Buffet', time: '12:30 PM – 03:30 PM', price: '₹1,079', note: 'Plus Taxes' },
+  { label: 'Dinner Buffet', time: '07:30 PM – 11:30 PM', price: '₹1,270', note: 'Plus Taxes' },
+  { label: 'Sunday Brunch', time: 'Every Sunday | 12 PM – 3:30 PM', price: '₹1,409', note: 'Plus Taxes · Live Music' },
+]
+
+const faqs = [
+  { q: 'Is the buffet available every day?', a: 'Yes, our multi-cuisine buffet is available daily, all day. Café Crema is open 24 hours at Hotel Peninsula Grand, Andheri East.' },
+  { q: 'What cuisines are included in the buffet?', a: 'North Indian, Chinese, Continental, Asian, plus a dedicated dessert station — vegetarian and non-veg options across all cuisines.' },
+  { q: 'Is the buffet good for large groups?', a: 'Absolutely. We can accommodate groups of up to 50 people. For large groups, call +91 99302 71349 to arrange in advance.' },
+  { q: 'Is this buffet or à la carte?', a: 'We offer both — buffet and a full à la carte menu are available simultaneously. Choose what works for your group.' },
+  { q: 'Do I need to book in advance for the buffet?', a: 'Walk-ins are welcome. For groups of 4 or more, we recommend calling ahead at +91 99302 71349 to ensure a good table.' },
 ]
 
 export default function BuffetPage() {
   return (
-    <div className="pt-24 bg-cream min-h-screen">
-      
-      {/* Hero Section */}
-      <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
-        <Image 
-          src="/interior/DSC03177.jpg"
-          alt="Café Crema Interior"
-          fill
-          className="object-cover brightness-50"
-          priority
-        />
-        <div className="relative z-10 text-center text-cream px-6">
-          <span className="text-meta text-cream/60 mb-6 block tracking-[0.4em]">CULLINARY JOURNEYS</span>
-          <h1 className="text-7xl md:text-9xl font-medium tracking-tight leading-none mb-8">
-            The Buffet <br />
-            <span className="font-heading italic font-light opacity-80">Narrative.</span>
-          </h1>
-          <p className="text-xl md:text-2xl font-light italic max-w-2xl mx-auto opacity-70">
-            A daily ritual of global flavours, served with localized warmth in the heart of the city.
-          </p>
-        </div>
-      </section>
+    <div className="min-h-screen bg-cream text-forest selection:bg-forest selection:text-cream">
 
-      {/* Buffet Grid */}
-      <section className="py-32 page-wrapper">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20">
-          {buffets.map((buffet) => (
-            <div key={buffet.id} className="group">
-              <Link href={`/buffet/${buffet.id}`} className="block relative aspect-[16/10] overflow-hidden mb-12">
-                <Image 
-                  src={buffet.image}
-                  alt={buffet.type}
-                  fill
-                  className="object-cover transition-luxury group-hover:scale-105"
-                />
-                <div className="absolute top-8 left-8">
-                   <div className={`${buffet.color} ${buffet.textColor} px-6 py-2 text-[10px] font-bold uppercase tracking-widest`}>
-                    {buffet.type}
-                   </div>
-                </div>
-              </Link>
-              
-              <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
-                <div className="md:col-span-8">
-                  <Link href={`/buffet/${buffet.id}`} className="block hover:text-gold-muted transition-colors">
-                    <h2 className="text-4xl font-medium tracking-tight mb-6">{buffet.type}</h2>
-                  </Link>
-                  <p className="text-forest/60 font-light leading-relaxed italic mb-8">
-                    {buffet.desc}
-                  </p>
-                  <ul className="grid grid-cols-2 gap-4 mb-8">
-                    {buffet.highlights.map((h) => (
-                      <li key={h} className="text-[10px] font-bold uppercase tracking-widest text-forest/40 flex items-center gap-3">
-                        <span className="w-1.5 h-1.5 bg-gold-muted rounded-full" />
-                        {h}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="md:col-span-4 md:border-l border-forest/10 md:pl-8 flex flex-col justify-center">
-                  <div className="mb-6">
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-forest/30 block mb-2">TIME</span>
-                    <span className="text-sm font-medium">{buffet.time}</span>
-                  </div>
-                  <div>
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-forest/30 block mb-2">PRICE</span>
-                    <span className="text-2xl font-medium text-gold-muted">{buffet.price}</span>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="mt-12 pt-12 border-t border-forest/5 flex justify-between items-center">
-                <div className="flex gap-4">
-                  <Link 
-                    href="/contact"
-                    className="px-8 py-3 bg-forest text-cream text-[10px] font-bold uppercase tracking-widest transition-luxury hover:bg-gold-muted"
-                  >
-                    Reserve Now
-                  </Link>
-                  <Link 
-                    href={`/buffet/${buffet.id}`}
-                    className="px-8 py-3 border border-forest/20 text-forest text-[10px] font-bold uppercase tracking-widest transition-luxury hover:border-forest"
-                  >
-                    Details
-                  </Link>
-                </div>
-                <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-forest/20 hidden sm:block">
-                  EST. 24/7 SERVICE
-                </span>
-              </div>
+      {/* ── Cinematic Hero ── */}
+      <PageHero
+        subtitle="HOTEL PENINSULA GRAND, ANDHERI EAST"
+        title={<>Mumbai's Most <br /><span className="font-heading italic font-light !text-cream/40">Satisfying Buffet.</span></>}
+        description="At Café Crema, the buffet is not a backup plan — it's the main event. Freshly prepared spreads across North Indian, Chinese, Continental, and Asian cuisine, available every day. All-you-can-eat dining in the heart of Andheri East."
+        image="/interior/DSC03132.jpg"
+        imageAlt="Café Crema Multi-Cuisine Buffet, Andheri East"
+      >
+        <div className="flex flex-wrap gap-4">
+          <Link href="/contact" className="px-8 py-4 bg-cream text-forest text-[10px] font-bold uppercase tracking-widest hover:bg-sand transition-luxury">Reserve a Table</Link>
+          <Link href="/menu" className="px-8 py-4 border border-cream/40 text-cream text-[10px] font-bold uppercase tracking-widest hover:bg-cream/10 transition-luxury">View Full Menu</Link>
+        </div>
+      </PageHero>
+
+      {/* ── Pricing Strip ── */}
+      <section className="bg-forest border-b border-cream/10 overflow-hidden">
+        <div className="page-wrapper grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-cream/10">
+          {pricing.map((item, i) => (
+            <div key={i} className="py-12 md:py-16 px-8 hover:bg-cream/[0.03] transition-all duration-700 group cursor-default">
+              <span className="text-[9px] font-bold uppercase tracking-[0.4em] text-cream/30 group-hover:text-gold-muted transition-colors duration-700 block mb-3">{item.time}</span>
+              <div className="text-4xl font-medium text-cream tracking-tight mb-2 group-hover:scale-105 origin-left transition-transform duration-700">{item.price}</div>
+              <div className="text-[10px] font-bold uppercase tracking-widest text-gold-muted/60 mb-4">{item.note}</div>
+              <div className="text-sm text-cream/50 font-light italic group-hover:text-cream/80 transition-colors duration-700">{item.label}</div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Philosophy Callout */}
-      <section className="bg-sand py-32 border-y border-forest/10">
+      {/* ── Every Cuisine. One Table. ── */}
+      <section className="py-24 md:py-48 page-wrapper">
+        <div className="mb-20 md:mb-32">
+          <span className="text-meta text-forest/30 mb-6 block tracking-[0.6em]">WHAT'S INCLUDED</span>
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight leading-none mb-8">
+            Every Cuisine. <br />
+            <span className="font-heading italic font-light text-forest/30">One Table.</span>
+          </h2>
+          <p className="text-lg text-forest/60 font-light italic max-w-2xl leading-relaxed">
+            Our buffet spans the full width of our kitchen — which means every trip to the counter is a different journey. Expect rotating daily specials alongside our permanent favourites.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-forest/10 border border-forest/10">
+          {cuisines.map((c, i) => (
+            <div key={i} className="bg-cream p-10 md:p-12 hover:bg-sand transition-all duration-500 group">
+              <span className="text-[9px] font-bold uppercase tracking-[0.5em] text-forest/30 block mb-6">0{i + 1}</span>
+              <h3 className="text-2xl font-medium tracking-tight mb-4 group-hover:text-gold-muted transition-colors duration-500">{c.title}</h3>
+              <p className="text-sm font-light text-forest/60 leading-relaxed italic">{c.body}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── Why Café Crema ── */}
+      <section className="bg-sand py-24 md:py-48 border-y border-forest/10">
+        <div className="page-wrapper">
+          <div className="mb-20 md:mb-32">
+            <span className="text-meta text-forest/30 mb-6 block tracking-[0.6em]">WHY CAFÉ CREMA</span>
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight leading-none">
+              Why Café Crema's <br />
+              <span className="font-heading italic font-light text-forest/30">Buffet Stands Out.</span>
+            </h2>
+          </div>
+          <div className="space-y-0">
+            {whyUs.map((item, i) => (
+              <div key={i} className="flex gap-10 md:gap-16 items-start border-b border-forest/10 py-10 md:py-12 group hover:pl-4 transition-luxury">
+                <span className="text-4xl md:text-5xl font-medium text-forest/10 leading-none tabular-nums shrink-0 pt-1">0{i + 1}</span>
+                <div>
+                  <h4 className="text-xl md:text-2xl font-medium text-forest mb-3 tracking-tight">{item.title}</h4>
+                  <p className="text-sm font-light text-forest/50 leading-relaxed">{item.body}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Sunday Brunch Callout ── */}
+      <section className="bg-forest py-24 md:py-40">
+        <div className="page-wrapper grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="relative aspect-square overflow-hidden">
+            <Image
+              src="/interior/sunday-brunch.png"
+              alt="Sunday Brunch with Live Music at Café Crema Andheri East"
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0 border-[24px] border-forest/40 mix-blend-overlay pointer-events-none" />
+          </div>
+          <div>
+            <span className="text-meta text-cream/60 mb-10 block tracking-[0.6em]">MAKE IT SPECIAL</span>
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight leading-none text-cream mb-8">
+              Upgrade to Our <br />
+              <span className="font-heading italic font-light text-cream/80">Sunday Brunch.</span>
+            </h2>
+            <p className="text-lg text-cream/80 font-light italic leading-relaxed mb-12 max-w-lg">
+              Our Sunday Brunch (every Sunday, 12 PM – 3:30 PM) takes the buffet and adds live music, a festive atmosphere, and an extended spread. Starting at ₹1,409 + taxes per person.
+            </p>
+            <Link
+              href="/sunday-brunch"
+              className="inline-flex items-center gap-4 text-[10px] font-bold uppercase tracking-[0.4em] text-cream border-b border-cream/30 pb-2 hover:border-cream transition-colors"
+            >
+              View Sunday Brunch Details →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── FAQs ── */}
+      <section className="py-24 md:py-48 page-wrapper bg-cream">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-20 md:mb-32">
+            <span className="text-meta text-forest/30 mb-8 block tracking-[0.6em]">COMMON QUESTIONS</span>
+            <h2 className="text-4xl md:text-6xl font-medium tracking-tight leading-none">
+              Buffet <span className="font-heading italic font-light text-forest/30">FAQs.</span>
+            </h2>
+          </div>
+          <div className="space-y-4">
+            {faqs.map((faq, i) => (
+              <div key={i} className="bg-sand/30 border border-forest/5 p-8 md:p-12 hover:bg-sand/60 transition-all duration-700 group">
+                <div className="flex gap-8 items-start">
+                   <span className="text-meta text-gold-muted/40 pt-1 group-hover:text-gold-muted transition-colors duration-700">0{i + 1}</span>
+                   <div>
+                      <h4 className="text-xl md:text-2xl font-medium text-forest mb-4 tracking-tight">{faq.q}</h4>
+                      <p className="text-base font-light text-forest/60 leading-relaxed italic max-w-2xl">{faq.a}</p>
+                   </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Location CTA ── */}
+      <section className="bg-sand py-24 md:py-32 border-t border-forest/10">
         <div className="page-wrapper text-center">
-           <span className="text-meta text-forest/40 mb-12 block tracking-[0.5em]">OUR PHILOSOPHY</span>
-           <h2 className="text-5xl md:text-7xl font-medium tracking-tight max-w-4xl mx-auto leading-tight mb-16">
-            “Quality is not an act, it is <br />
-            <span className="font-heading italic font-light">a daily habit.”</span>
-           </h2>
-           <Link href="/menu" className="text-[10px] font-bold uppercase tracking-[0.5em] border-b border-forest/20 pb-4 hover:border-forest transition-all">
-            Explore Ala Carte Menu
-           </Link>
+          <span className="text-meta text-forest/30 mb-10 block tracking-[0.6em]">FIND US</span>
+          <h2 className="text-4xl md:text-6xl font-medium tracking-tight leading-none mb-8">
+            Find Our Buffet in <br />
+            <span className="font-heading italic font-light text-forest/30">Andheri East.</span>
+          </h2>
+          <p className="text-base text-forest/60 font-light italic mb-4">
+            1st Floor, Hotel Peninsula Grand, Sakinaka Junction, Andheri East, Mumbai – 400072
+          </p>
+          <p className="text-sm text-forest/40 font-light mb-12">
+            2-minute walk from Sakinaka Metro Station (Line 2B) · Free parking on-site
+          </p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link href="/contact" className="px-12 py-5 bg-forest text-cream text-[10px] font-bold uppercase tracking-[0.5em] transition-luxury hover:bg-gold-muted">Reserve a Table</Link>
+            <a href="tel:+919930271349" className="px-12 py-5 border border-forest/20 text-[10px] font-bold uppercase tracking-[0.5em] hover:border-forest transition-luxury">+91 99302 71349</a>
+          </div>
         </div>
       </section>
 

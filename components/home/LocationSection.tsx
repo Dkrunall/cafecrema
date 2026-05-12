@@ -11,8 +11,8 @@ export default function LocationSection() {
         <div className="lg:col-span-6">
           <span className="text-meta text-forest/40 mb-10 block tracking-[0.6em]">VISIT US</span>
           <h2 className="text-4xl md:text-6xl lg:text-7xl font-medium leading-none md:leading-[0.95] mb-16">
-            Visit The <br />
-            <span className="font-heading italic">Sanctuary.</span>
+            Find Us in <br />
+            <span className="font-heading italic">Andheri East, Mumbai.</span>
           </h2>
           
           <div className="space-y-12">
@@ -24,7 +24,8 @@ export default function LocationSection() {
                 <p className="text-meta mb-2 text-forest/30">LOCATION</p>
                 <p className="text-lg text-forest/80 font-light leading-relaxed">
                   1st Floor, Hotel Peninsula Grand, <br />
-                  Sakinaka Junction, Andheri East, Mumbai
+                  Sakinaka Junction, Andheri East, <br />
+                  Mumbai, Maharashtra 400072
                 </p>
               </div>
             </div>
@@ -45,21 +46,22 @@ export default function LocationSection() {
               </div>
               <div>
                 <p className="text-meta mb-2 text-forest/30">AVAILABILITY</p>
-                <p className="text-lg text-forest/80 font-light italic">Always Open / Atelier Service 24-7</p>
+                <p className="text-lg text-forest/80 font-light italic">Open 24 Hours, 7 Days a Week</p>
               </div>
             </div>
           </div>
         </div>
 
         {/* Map Side (Editorial Style) */}
-        <div className="relative aspect-square md:aspect-auto min-h-[400px] overflow-hidden grayscale contrast-125 hover:grayscale-0 transition-luxury">
+        <div className="lg:col-span-6 relative aspect-square md:aspect-auto min-h-[500px] overflow-hidden transition-luxury border border-forest/10 shadow-2xl">
           <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.0035!2d72.88!3d19.10!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDA2JzA5LjAiTiA3MsKwNTMnMTEuNCJF!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin" 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.211479836923!2d72.88602697520593!3d19.109337587079255!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c8702c2e061d%3A0xe543e26415758b9d!2sHotel%20Peninsula%20Grand!5e0!3m2!1sen!2sin!4v1715516000000!5m2!1sen!2sin" 
             title="Cafe Crema Location Map"
-            className="w-full h-full border-none opacity-50 hover:opacity-100 transition-opacity duration-1000"
+            className="w-full h-full border-none opacity-60 hover:opacity-100 transition-opacity duration-1000"
             loading="lazy"
+            allowFullScreen
           ></iframe>
-          <div className="absolute inset-0 pointer-events-none border-[1px] border-forest/10" />
+          <div className="absolute inset-0 pointer-events-none border-[1px] border-forest/5" />
         </div>
 
       </div>

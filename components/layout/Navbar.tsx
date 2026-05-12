@@ -16,9 +16,10 @@ export default function Navbar() {
   }, [])
 
   const navLinks = [
-    { name: 'Freshness', href: '/menu' },
-    { name: 'Pricing', href: '/events' },
-    { name: 'Our Story', href: '/about' },
+    { name: 'Menu', href: '/menu' },
+    { name: 'Buffet', href: '/buffet' },
+    { name: 'Events', href: '/events' },
+    { name: 'About', href: '/about' },
   ]
 
   return (
@@ -41,9 +42,10 @@ export default function Navbar() {
               <Link
                 key={link.name}
                 href={link.href}
-                className="text-[10px] font-bold uppercase tracking-[0.3em] text-cream/70 hover:text-cream transition-colors"
+                className="text-[10px] font-bold uppercase tracking-[0.3em] text-cream/70 hover:text-cream transition-colors relative group/link"
               >
                 {link.name}
+                <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-cream transition-all duration-500 group-hover/link:w-full" />
               </Link>
             ))}
           </div>
@@ -54,7 +56,7 @@ export default function Navbar() {
               href="/contact"
               className="hidden md:inline-flex px-6 py-2 bg-cream text-forest rounded-full text-[10px] font-bold uppercase tracking-widest hover:scale-105 transition-luxury active:scale-95"
             >
-              Book A Table
+              Reserve a Table
             </Link>
 
             {/* Mobile Toggle */}
@@ -99,7 +101,7 @@ export default function Navbar() {
             onClick={() => setIsOpen(false)}
             className="mt-8 text-[12px] font-bold uppercase tracking-[0.4em] px-12 py-4 bg-cream text-forest rounded-full hover:bg-sand transition-colors"
           >
-            Book A Table
+            Reserve a Table
           </Link>
         </div>
       </div>

@@ -24,6 +24,10 @@
 }
 
 /* Global Reset & Base Styles */
+html {
+  overflow-x: hidden;
+}
+
 body {
   @apply bg-cream text-forest font-body antialiased;
   background-color: var(--color-cream);
@@ -76,7 +80,7 @@ h4 {
 
 /* High-End Utilities */
 @utility text-huge {
-  @apply text-5xl md:text-8xl lg:text-[110px] font-medium leading-[0.95] tracking-[-0.03em];
+  @apply text-4xl md:text-7xl lg:text-8xl font-medium leading-[0.9] tracking-[-0.03em];
 }
 
 @utility transition-luxury {

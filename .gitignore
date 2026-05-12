@@ -22,7 +22,9 @@
 
 # misc
 .DS_Store
+__MACOSX
 *.pem
+*.docx
 
 # debug
 npm-debug.log*

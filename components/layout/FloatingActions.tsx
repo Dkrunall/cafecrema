@@ -40,7 +40,7 @@ const actions = [
   {
     id: 'instagram',
     label: 'Instagram',
-    href: 'https://www.instagram.com/peninsulagrand/',
+    href: 'https://www.instagram.com/cafecrema__/',
     external: true,
     icon: <IconInstagram />,
     primary: false,

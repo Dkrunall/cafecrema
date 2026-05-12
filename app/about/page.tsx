@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 
+import PageHero from '@/components/layout/PageHero'
+
 export const metadata: Metadata = {
   title: 'About Café Crema | Hotel Peninsula Grand, Andheri East',
   description: 'Discover the story behind Café Crema, the premier all-day dining destination at Hotel Peninsula Grand. Learn about our multi-cuisine philosophy and culinary values.',
@@ -9,39 +11,24 @@ export const metadata: Metadata = {
 }
 
 const values = [
-  { num: '01', title: '24/7 Hours', desc: 'Dining without boundaries — whenever the craving strikes.' },
-  { num: '02', title: 'Live Sound', desc: 'Curated acoustic sessions for a full sensorial experience.' },
-  { num: '03', title: 'Pure Sourcing', desc: 'Locally grown ingredients, internationally prepared to standard.' },
-  { num: '04', title: 'Global Canvas', desc: 'Seven distinct cuisines united under one roof.' },
+  { num: '01', title: 'Open 24/7', desc: 'Dining without limits — whenever the craving strikes, we\'re open at Hotel Peninsula Grand, Andheri East.' },
+  { num: '02', title: 'Live Music Every Sunday', desc: 'Our Sunday Brunch (12 PM–3:30 PM) features live musical performances — one of the most popular events in Andheri East.' },
+  { num: '03', title: 'Fresh Ingredients Daily', desc: 'Everything on our buffet and à la carte menu is prepared fresh in our in-house kitchen, every day.' },
+  { num: '04', title: 'Seven Cuisines', desc: 'North Indian, Chinese, Continental, Asian, Cafe, Bar, and Desserts — all under one roof in Andheri East, Mumbai.' },
 ]
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-cream text-forest">
+    <div className="min-h-screen bg-cream text-forest selection:bg-forest selection:text-cream">
 
       {/* ── Cinematic Hero ── */}
-      <section className="relative min-h-[100vh] flex items-end overflow-hidden">
-        <Image
-          src="/interior/DSC03153.jpg"
-          alt="Café Crema Interior"
-          fill
-          className="object-cover"
-          priority
-        />
-        <div className="absolute inset-0 bg-forest/40" />
-        <div className="absolute inset-0 bg-gradient-to-t from-forest/80 via-transparent to-forest/20" />
-        <div className="absolute inset-0 bg-gradient-to-r from-forest/60 via-transparent to-transparent" />
-        <div className="relative z-10 page-wrapper pb-24 md:pb-32 w-full">
-          <span className="text-meta text-cream/40 mb-10 block tracking-[0.6em]">THE ARCHIVE</span>
-          <h1 className="text-5xl md:text-7xl lg:text-[130px] font-medium leading-[0.85] tracking-tight !text-cream mb-10">
-            The Heart <br />
-            <span className="font-heading italic font-light !text-cream/40">of Andheri.</span>
-          </h1>
-          <p className="text-xl !text-cream/60 font-light italic max-w-2xl leading-relaxed">
-            A premier all-day dining destination operating with the warmth of a neighbourhood café and the standards of a world-class hotel.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        subtitle="OUR STORY"
+        title={<>Where Every Hour <br /><span className="font-heading italic font-light !text-cream/40">Is the Right Time to Dine.</span></>}
+        description="A premier all-day dining destination at Hotel Peninsula Grand, operating with the warmth of a neighbourhood café and the standards of a world-class hotel kitchen."
+        image="/interior/DSC03153.jpg"
+        imageAlt="Café Crema Interior"
+      />
 
       {/* ── Brand Manifesto ── */}
       <section className="py-24 md:py-56 page-wrapper">
@@ -50,18 +37,13 @@ export default function AboutPage() {
             <span className="text-meta text-forest/30 mb-12 block tracking-[0.6em]">OUR ORIGIN</span>
             <h2 className="text-4xl md:text-6xl font-medium tracking-tight leading-none mb-16">
               Born from <br />
-              <span className="font-heading italic font-light text-forest/30">a vision.</span>
+              <span className="font-heading italic font-light text-forest/30">a Simple Idea.</span>
             </h2>
           </div>
           <div className="md:col-span-7 md:pt-24">
             <p className="text-2xl md:text-3xl text-forest/60 font-light leading-relaxed italic mb-12">
-              Café Crema was born out of a simple but powerful vision: to provide a premium, heart-warming dining experience that operates without boundaries.
+              Café Crema was built on one straightforward belief: that great dining should be available to everyone, at any hour, without compromise. Located at Hotel Peninsula Grand, Sakinaka Junction, Andheri East — we serve Mumbai with the warmth of a neighbourhood café and the standards of a world-class hotel kitchen.
             </p>
-            <blockquote className="border-l-2 border-gold-muted pl-8 py-4">
-              <p className="text-sm font-bold uppercase tracking-[0.4em] text-gold-muted leading-loose">
-                "Operating with the localized warmth of a neighbourhood café, paired with the sophisticated standards of a world-class hotel."
-              </p>
-            </blockquote>
           </div>
         </div>
       </section>
@@ -83,16 +65,16 @@ export default function AboutPage() {
           <div>
             <span className="text-meta text-forest/30 mb-16 block tracking-[0.6em]">OUR VALUES</span>
             <h2 className="text-4xl md:text-6xl lg:text-7xl font-medium leading-[0.9] tracking-tight mb-20">
-              Culinary <br />
-              <span className="font-heading italic font-light text-forest/30">Excellence.</span>
+              Culinary Excellence, <br />
+              <span className="font-heading italic font-light text-forest/30">Every Hour.</span>
             </h2>
-            <div className="space-y-0">
+            <div className="space-y-4">
               {values.map((stat) => (
-                <div key={stat.num} className="flex gap-10 items-start border-b border-forest/10 py-10 group hover:pl-4 transition-luxury">
-                  <span className="text-5xl font-medium text-forest/10 leading-none tabular-nums pt-1">{stat.num}</span>
+                <div key={stat.num} className="flex gap-10 items-start border-b border-forest/5 py-12 group hover:bg-sand/50 transition-all duration-700 px-6 -mx-6">
+                  <span className="text-6xl font-medium text-forest/5 leading-none tabular-nums pt-1 group-hover:text-gold-muted/20 transition-colors duration-700">{stat.num}</span>
                   <div>
-                    <h4 className="text-xl font-medium text-forest mb-2 tracking-tight">{stat.title}</h4>
-                    <p className="text-sm font-light text-forest/40 leading-relaxed uppercase tracking-widest">{stat.desc}</p>
+                    <h4 className="text-2xl font-medium text-forest mb-3 tracking-tight">{stat.title}</h4>
+                    <p className="text-base font-light text-forest/60 leading-relaxed italic">{stat.desc}</p>
                   </div>
                 </div>
               ))}
@@ -103,10 +85,13 @@ export default function AboutPage() {
 
       {/* ── Interior Gallery Grid ── */}
       <section className="py-24 md:py-40 page-wrapper">
-        <div className="flex items-end justify-between mb-16">
-          <span className="text-meta text-forest/30 tracking-[0.6em]">THE SPACE</span>
-          <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-forest/20">Hotel Peninsula Grand</span>
+        <div className="flex items-end justify-between mb-8">
+          <span className="text-meta text-forest/30 tracking-[0.6em]">THE SPACE | HOTEL PENINSULA GRAND</span>
+          <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-forest/20">Andheri East, Mumbai</span>
         </div>
+        <p className="text-lg text-forest/60 font-light italic leading-relaxed max-w-2xl mb-16">
+          Café Crema occupies the first floor of Hotel Peninsula Grand — one of Andheri East's most established hotel addresses. The dining room is warm, comfortable, and designed for the long lunch, the working breakfast, and the celebratory dinner.
+        </p>
         <div className="grid grid-cols-12 gap-4 items-stretch">
           {/* Large featured image — height driven by the right 2×2 grid */}
           <div className="col-span-12 md:col-span-5 relative min-h-[400px] overflow-hidden group">
@@ -128,8 +113,8 @@ export default function AboutPage() {
         <div className="page-wrapper max-w-3xl mx-auto">
           <span className="text-meta text-cream/30 mb-16 block tracking-[0.6em]">EXPERIENCE IT FIRST HAND</span>
           <h2 className="text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight leading-tight mb-16 text-cream">
-            Reserve your <br />
-            <span className="font-heading italic font-light opacity-50">table today.</span>
+            Reserve Your Table at <br />
+            <span className="font-heading italic font-light opacity-50">Café Crema Today.</span>
           </h2>
           <Link
             href="/contact"

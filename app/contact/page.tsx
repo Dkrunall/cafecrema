@@ -4,6 +4,8 @@ import Link from 'next/link'
 import ReservationForm from '@/components/forms/ReservationForm'
 import LocationSection from '@/components/home/LocationSection'
 
+import PageHero from '@/components/layout/PageHero'
+
 export const metadata: Metadata = {
   title: 'Contact & Reservations – Café Crema Mumbai',
   description: 'Book your table, find our location at Hotel Peninsula Grand on the map, or contact Café Crema Andheri East via Phone and WhatsApp for bulk bookings.',
@@ -12,60 +14,45 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen bg-cream text-forest">
+    <div className="min-h-screen bg-cream text-forest selection:bg-forest selection:text-cream">
 
       {/* ── Cinematic Hero ── */}
-      <section className="relative min-h-[100vh] flex items-end overflow-hidden">
-        <Image
-          src="/interior/DSC03132.jpg"
-          alt="Café Crema Dining"
-          fill
-          className="object-cover"
-          priority
-        />
-        <div className="absolute inset-0 bg-forest/40" />
-        <div className="absolute inset-0 bg-gradient-to-t from-forest/80 via-transparent to-forest/20" />
-        <div className="absolute inset-0 bg-gradient-to-r from-forest/60 via-transparent to-transparent" />
-        <div className="relative z-10 page-wrapper pb-24 md:pb-32 w-full">
-          <span className="text-meta text-cream/40 mb-10 block tracking-[0.6em]">ARRIVALS</span>
-          <h1 className="text-5xl md:text-8xl lg:text-9xl font-medium leading-[0.85] tracking-tight !text-cream mb-8">
-            Reserve <br />
-            <span className="font-heading italic font-light !text-cream/40">your table.</span>
-          </h1>
-          <p className="text-xl !text-cream/60 font-light italic max-w-xl leading-relaxed">
-            Reach out for reservations, catering inquiries, or private dining at Hotel Peninsula Grand, Andheri East.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        subtitle="RESERVATIONS"
+        title={<>Book a Table at <br /><span className="font-heading italic font-light !text-cream/40">Café Crema, Andheri East.</span></>}
+        description="Call us, WhatsApp us, or fill in the form below. We confirm all reservations within 60 minutes. Walk-ins also welcome — we're open 24 hours."
+        image="/interior/DSC03132.jpg"
+        imageAlt="Café Crema Dining"
+      />
 
       {/* ── Quick Contact Strip ── */}
-      <section className="bg-sand border-b border-forest/10">
+      <section className="bg-sand border-b border-forest/10 overflow-hidden">
         <div className="page-wrapper grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-forest/10">
-          <a href="tel:+919930271349" className="py-10 px-8 flex items-center gap-6 group hover:bg-sand/60 transition-luxury">
-            <div className="w-10 h-10 border border-forest/10 flex items-center justify-center text-forest/40 group-hover:bg-forest group-hover:text-cream transition-luxury shrink-0">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.56a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <a href="tel:+919930271349" className="py-12 md:py-16 px-8 flex items-center gap-6 group hover:bg-forest transition-all duration-700">
+            <div className="w-12 h-12 rounded-full border border-forest/10 flex items-center justify-center text-forest group-hover:border-cream/20 group-hover:text-cream transition-all duration-700 shrink-0">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.56a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
             </div>
             <div>
-              <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-forest/30 block mb-1">CALL US</span>
-              <span className="text-lg font-medium tracking-tight">+91 99302 71349</span>
+              <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-forest/30 group-hover:text-cream/40 block mb-1">CALL US</span>
+              <span className="text-xl font-medium tracking-tight group-hover:text-cream transition-colors">+91 99302 71349</span>
             </div>
           </a>
-          <a href="https://wa.me/919930271349" target="_blank" rel="noopener noreferrer" className="py-10 px-8 flex items-center gap-6 group hover:bg-sand/60 transition-luxury">
-            <div className="w-10 h-10 border border-forest/10 flex items-center justify-center text-forest/40 group-hover:bg-forest group-hover:text-cream transition-luxury shrink-0">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          <a href="https://wa.me/919930271349" target="_blank" rel="noopener noreferrer" className="py-12 md:py-16 px-8 flex items-center gap-6 group hover:bg-forest transition-all duration-700">
+            <div className="w-12 h-12 rounded-full border border-forest/10 flex items-center justify-center text-forest group-hover:border-cream/20 group-hover:text-cream transition-all duration-700 shrink-0">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
             </div>
             <div>
-              <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-forest/30 block mb-1">WHATSAPP</span>
-              <span className="text-lg font-medium tracking-tight">Chat Instantly</span>
+              <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-forest/30 group-hover:text-cream/40 block mb-1">WHATSAPP</span>
+              <span className="text-xl font-medium tracking-tight group-hover:text-cream transition-colors">Chat Instantly</span>
             </div>
           </a>
-          <div className="py-10 px-8 flex items-center gap-6">
-            <div className="w-10 h-10 border border-forest/10 flex items-center justify-center text-forest/40 shrink-0">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <div className="py-12 md:py-16 px-8 flex items-center gap-6 group">
+            <div className="w-12 h-12 rounded-full border border-forest/10 flex items-center justify-center text-forest/40 shrink-0">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
             </div>
             <div>
               <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-forest/30 block mb-1">HOURS</span>
-              <span className="text-lg font-medium tracking-tight">Open 24/7</span>
+              <span className="text-xl font-medium tracking-tight">Open 24/7</span>
             </div>
           </div>
         </div>
