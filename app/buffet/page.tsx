@@ -51,7 +51,7 @@ export default function BuffetPage() {
       {/* ── Cinematic Hero ── */}
       <PageHero
         subtitle="HOTEL PENINSULA GRAND, ANDHERI EAST"
-        title={<>Mumbai's Most <br /><span className="font-heading italic font-light !text-cream/40">Satisfying Buffet.</span></>}
+        title={<>Mumbai's Most <br /><span className="font-heading italic font-light !text-cream/90">Satisfying Buffet.</span></>}
         description="At Café Crema, the buffet is not a backup plan — it's the main event. Freshly prepared spreads across North Indian, Chinese, Continental, and Asian cuisine, available every day. All-you-can-eat dining in the heart of Andheri East."
         image="/interior/DSC03132.jpg"
         imageAlt="Café Crema Multi-Cuisine Buffet, Andheri East"
@@ -138,9 +138,9 @@ export default function BuffetPage() {
           </div>
           <div>
             <span className="text-meta text-cream/60 mb-10 block tracking-[0.6em]">MAKE IT SPECIAL</span>
-            <h2 className="text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight leading-none text-cream mb-8">
+            <h2 className="text-huge !text-cream mb-10">
               Upgrade to Our <br />
-              <span className="font-heading italic font-light text-cream/80">Sunday Brunch.</span>
+              <span className="font-heading italic font-light !text-cream/90">Sunday Brunch.</span>
             </h2>
             <p className="text-lg text-cream/80 font-light italic leading-relaxed mb-12 max-w-lg">
               Our Sunday Brunch (every Sunday, 12 PM – 3:30 PM) takes the buffet and adds live music, a festive atmosphere, and an extended spread. Starting at ₹1,409 + taxes per person.

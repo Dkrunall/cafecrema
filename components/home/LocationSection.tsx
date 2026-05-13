@@ -55,9 +55,9 @@ export default function LocationSection() {
         {/* Map Side (Editorial Style) */}
         <div className="lg:col-span-6 relative aspect-square md:aspect-auto min-h-[500px] overflow-hidden transition-luxury border border-forest/10 shadow-2xl">
           <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.211479836923!2d72.88602697520593!3d19.109337587079255!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c8702c2e061d%3A0xe543e26415758b9d!2sHotel%20Peninsula%20Grand!5e0!3m2!1sen!2sin!4v1715516000000!5m2!1sen!2sin" 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d792.5711129920717!2d72.88856816333653!3d19.102179056786525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c908a0a494fb%3A0x2158c696d1deeed4!2sCafe%20Crema!5e0!3m2!1sen!2sin!4v1778660476521!5m2!1sen!2sin" 
             title="Cafe Crema Location Map"
-            className="w-full h-full border-none opacity-60 hover:opacity-100 transition-opacity duration-1000"
+            className="w-full h-full border-none opacity-100 transition-opacity duration-1000"
             loading="lazy"
             allowFullScreen
           ></iframe>
