@@ -208,13 +208,13 @@ export default function DailyBuffet() {
         {/* ── Header + arrows ───────────────────────────────── */}
         <div className="flex items-end justify-between mb-32">
           <div className="max-w-4xl">
-            <span className="section-label text-gold-muted">New Selection</span>
+            <span className="section-label text-gold-muted">OUR BUFFET</span>
             <h2 className="text-5xl md:text-7xl lg:text-8xl font-medium tracking-tight leading-[0.9] mb-12">
-              The Daily <br />
-              <span className="font-heading italic text-forest/40">Buffet Narrative.</span>
+              Daily <br />
+              <span className="font-heading italic text-forest/40">Multi-Cuisine Buffet.</span>
             </h2>
-            <p className="text-xl text-forest/60 font-light italic max-w-2xl">
-              A meticulously curated buffet of global flavours, served daily in the heart of the city.
+            <p className="text-xl text-forest/80 font-light italic max-w-2xl leading-relaxed">
+              Freshly prepared North Indian, Chinese, Continental and Asian dishes — served every day at Hotel Peninsula Grand, Andheri East. Available 24 hours, 7 days a week.
             </p>
           </div>
 
