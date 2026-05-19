@@ -38,7 +38,7 @@ const menuData: MenuData = {
     },
     {
       name: 'Sunday Brunch',
-      description: '1 Non-Veg Live Counter · Salad Counter · Cheese Platter · Make Your Own Salad · Starters (3 Veg, 3 Non-Veg Chicken/Fish) · Main Course (5 Veg, 4 Non-Veg) · Dessert Counter · 3 Types Fresh Fruit Cuts · Live Music. Sundays Only, 12 PM–3:30 PM.',
+      description: '1 Veg Live Counter · 1 Non-Veg Live Counter · Salad Counter · Cheese Platter · Make Your Own Salad · Starters (3 Veg, 3 Non-Veg Chicken/Fish) · Main Course (5 Veg, 4 Non-Veg) · Dessert Counter · 3 Types Fresh Fruit Cuts · Live Music. Sundays Only, 12 PM–3:30 PM.',
       price: 1409,
       isVeg: false,
       isBestSeller: true

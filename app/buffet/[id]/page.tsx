@@ -19,7 +19,7 @@ const buffetData: Record<string, any> = {
     desc: 'Unlimited multi-cuisine buffet with live music — every Sunday at Café Crema, Andheri East.',
     longDesc: 'Every Sunday from 12 PM to 3:30 PM, Café Crema becomes Andheri East\'s most vibrant afternoon. A full spread with a non-veg live counter, starters, mains, dessert counter, and fresh fruit cuts — all accompanied by a live music performance.',
     highlights: [
-      '1 Non-Veg Live Counter',
+      '1 Veg & 1 Non-Veg Live Counter',
       'Starters — 3 Veg, 3 Non-Veg',
       'Main Course — 5 Veg, 4 Non-Veg',
       'Dessert Counter & Fruit Cuts',

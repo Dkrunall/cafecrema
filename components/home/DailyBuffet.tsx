@@ -11,7 +11,7 @@ const buffets = [
     type: 'Sunday Brunch',
     time: '12:00 PM – 03:30 PM',
     price: '₹1409 + taxes',
-    desc: '1 Non-Veg Live Counter · Starters (3 Veg, 3 Non-Veg) · Mains (5 Veg, 4 Non-Veg) · Dessert Counter · Cheese Platter · Live Music.',
+    desc: '1 Veg & 1 Non-Veg Live Counter · Starters (3 Veg, 3 Non-Veg) · Mains (5 Veg, 4 Non-Veg) · Dessert Counter · Cheese Platter · Live Music.',
     color: 'bg-gold-muted',
     textColor: 'text-cream',
   },
