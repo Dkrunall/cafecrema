@@ -15,33 +15,33 @@ type MenuData = Record<string, Dish[]>
 
 const menuData: MenuData = {
   'Buffet Experiences': [
-    { 
-      name: 'Breakfast Buffet', 
-      description: 'Live Counter: Egg to Order, Dosa, Poori, Paratha, Uttapam, Waffle, Pancake. Buffet: Sambhar, Idli, Vada, Poha, Upma, Aloo Bhaji, Chicken Sausages, Boiled Egg, Bread Counter, Salad & more.', 
-      price: 660, 
-      isVeg: false, 
-      isBestSeller: true 
+    {
+      name: 'Breakfast Buffet',
+      description: 'Live Counter · South Indian Dishes · English Breakfast · Bread Counter · Salad Counter · Assorted Sandwich · Desserts & Fruit Cuts · Fresh Juice · Canned Juice · Tea / Coffee.',
+      price: 660,
+      isVeg: false,
+      isBestSeller: true
     },
-    { 
-      name: 'Lunch Buffet', 
-      description: 'Soup (Veg/Non-Veg), 2 Live Counters (Chef Choice), 6 Cold Salads, Cheese Platter, 4 Non-Veg & 5 Veg Mains, Dal, Rice/Noodles, 8 Desserts & Fresh Fruits.', 
-      price: 1079, 
-      isVeg: false, 
-      isBestSeller: true 
+    {
+      name: 'Lunch Buffet',
+      description: 'Veg/Non-Veg Soups · Live Counter · Salad Counter · Cheese Platter · Make Your Own Salad · Starters (2 Veg, 2 Non-Veg) · Main Course (5 Veg, 4 Non-Veg) · Indian Breads · Desserts · 3 Types Fresh Fruit Cuts.',
+      price: 1079,
+      isVeg: false,
+      isBestSeller: true
     },
-    { 
-      name: 'Dinner Buffet', 
-      description: 'Soup (Veg/Non-Veg), 3 Live Counters (Chef Choice), 6 Cold Salads, Cheese Platter, 4 Non-Veg & 5 Veg Mains, Dal, Rice/Noodles, 8 Desserts & Fresh Fruits.', 
-      price: 1270, 
-      isVeg: false, 
-      isBestSeller: true 
+    {
+      name: 'Dinner Buffet',
+      description: 'Live Counter · Salad Counter · Cheese Platter · Make Your Own Salad · Starters (2 Veg, 2 Non-Veg) · Main Course (5 Veg, 4 Non-Veg) · Desserts Counter · 3 Types Fresh Fruit Cuts.',
+      price: 1270,
+      isVeg: false,
+      isBestSeller: true
     },
-    { 
-      name: 'Sunday Brunch', 
-      description: 'Full Multi-Cuisine Buffet with Live Performance, Welcome Sips, Artisanal Cocktails, and Handcrafted Dessert Stations. (Sundays Only, 12 PM - 3:30 PM)', 
-      price: 1409, 
-      isVeg: false, 
-      isBestSeller: true 
+    {
+      name: 'Sunday Brunch',
+      description: '1 Non-Veg Live Counter · Salad Counter · Cheese Platter · Make Your Own Salad · Starters (3 Veg, 3 Non-Veg Chicken/Fish) · Main Course (5 Veg, 4 Non-Veg) · Dessert Counter · 3 Types Fresh Fruit Cuts · Live Music. Sundays Only, 12 PM–3:30 PM.',
+      price: 1409,
+      isVeg: false,
+      isBestSeller: true
     },
   ],
   'North Indian': [

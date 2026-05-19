@@ -19,12 +19,12 @@ export const metadata: Metadata = {
 }
 
 const included = [
-  { title: 'Unlimited Multi-Cuisine Buffet', body: 'North Indian, Chinese, Continental, Asian — refill as many times as you like. Live replenishment throughout.' },
-  { title: 'Live Music Performance', body: 'Every Sunday our resident musicians perform live. The perfect soundtrack to a long, unhurried afternoon.' },
-  { title: 'Dessert Station', body: 'Gulab Jamun, Chocolate Fondant, Mango Panna Cotta, Kulfi Trio — plus a rotating daily sorbet.' },
-  { title: 'Beverages Included', body: 'Soft drinks, fresh juices, masala chai and coffee included. Bar beverages available at additional cost.' },
-  { title: 'Free Parking', body: 'Ample parking at Hotel Peninsula Grand — arrive stress-free.' },
-  { title: '2 Mins from Metro', body: 'Sakinaka Metro Station (Line 2B) is a 2-minute walk away. Accessible from Andheri, Kurla, Powai, and Ghatkopar.' },
+  { title: '1 Non-Veg Live Counter', body: 'Chef-attended live cooking station — watch your food prepared fresh in front of you.' },
+  { title: 'Salad Counter & Cheese Platter', body: 'A fresh salad bar, a curated cheese platter, and a make-your-own salad station.' },
+  { title: 'Starters — 3 Veg & 3 Non-Veg', body: 'Six starter dishes including chicken and fish preparations to begin your Sunday afternoon right.' },
+  { title: 'Main Course — 5 Veg & 4 Non-Veg', body: 'Nine mains across all cuisines — continuously replenished throughout the brunch.' },
+  { title: 'Dessert Counter', body: 'A full dessert station plus 3 types of fresh fruit cuts to finish on a sweet note.' },
+  { title: 'Live Music Performance', body: 'Our resident musicians perform live every Sunday — the perfect soundtrack to a long, unhurried afternoon.' },
 ]
 
 const faqs = [

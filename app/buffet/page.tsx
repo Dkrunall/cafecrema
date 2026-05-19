@@ -12,13 +12,36 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://cafecrema.in/buffet' },
 }
 
-const cuisines = [
-  { title: 'North Indian', body: 'Curries, biryanis, dals, tandoor breads — the classics, done with care. Dal Makhani, Butter Chicken, Paneer Tikka, Rogan Josh, and more.' },
-  { title: 'Chinese', body: 'Indo-Chinese done right. Hakka noodles, Schezwan fried rice, Dim Sum, Kung Pao Chicken, Hot & Sour Soup.' },
-  { title: 'Continental', body: 'European-inspired plates: risottos, pasta, grilled proteins, salads, and freshly baked breads.' },
-  { title: 'Asian', body: 'Thai, Japanese, and pan-Asian favourites — Pad Thai, Miso Ramen, Green Curry, Gyoza, Banh Mi.' },
-  { title: 'Dessert Station', body: 'Gulab Jamun, Chocolate Fondant, Kulfi Trio, Mango Panna Cotta, Tiramisu, and a rotating daily sorbet.' },
-  { title: 'Live Stations', body: 'Chef-attended live counters during peak hours — watch your food being prepared fresh in front of you.' },
+const buffetDetails = [
+  {
+    name: 'Breakfast Buffet',
+    time: '07:30 AM – 10:30 AM',
+    price: '₹660',
+    note: 'Plus Taxes',
+    items: ['Live Counter', 'South Indian Dishes', 'English Breakfast', 'Bread Counter', 'Salad Counter', 'Assorted Sandwich', 'Desserts & Fruit Cuts', 'Fresh Juice', 'Canned Juice', 'Tea / Coffee'],
+  },
+  {
+    name: 'Lunch Buffet',
+    time: '12:30 PM – 03:30 PM',
+    price: '₹1,079',
+    note: 'Plus Taxes',
+    items: ['Veg / Non-Veg Soups', 'Live Counter', 'Salad Counter', 'Cheese Platter', 'Make Your Own Salad', 'Starters — 2 Veg, 2 Non-Veg', 'Main Course — 5 Veg, 4 Non-Veg', 'Indian Breads', 'Desserts', '3 Types Fresh Fruit Cuts'],
+  },
+  {
+    name: 'Dinner Buffet',
+    time: '07:30 PM – 11:30 PM',
+    price: '₹1,270',
+    note: 'Plus Taxes',
+    items: ['Live Counter', 'Salad Counter', 'Cheese Platter', 'Make Your Own Salad', 'Starters — 2 Veg, 2 Non-Veg', 'Main Course — 5 Veg, 4 Non-Veg', 'Desserts Counter', '3 Types Fresh Fruit Cuts'],
+  },
+  {
+    name: 'Sunday Brunch',
+    time: 'Every Sunday | 12 PM – 3:30 PM',
+    price: '₹1,409',
+    note: 'Plus Taxes · Live Music',
+    highlight: true,
+    items: ['1 Non-Veg Live Counter', 'Salad Counter', 'Cheese Platter', 'Make Your Own Salad', 'Starters — 3 Veg, 3 Non-Veg (Chicken / Fish)', 'Main Course — 5 Veg, 4 Non-Veg', 'Dessert Counter', '3 Types Fresh Fruit Cuts', 'Live Music Performance'],
+  },
 ]
 
 const whyUs = [
@@ -76,25 +99,39 @@ export default function BuffetPage() {
         </div>
       </section>
 
-      {/* ── Every Cuisine. One Table. ── */}
+      {/* ── What's Included ── */}
       <section className="py-24 md:py-48 page-wrapper">
         <div className="mb-20 md:mb-32">
           <span className="text-meta text-forest/30 mb-6 block tracking-[0.6em]">WHAT'S INCLUDED</span>
           <h2 className="text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight leading-none mb-8">
-            Every Cuisine. <br />
-            <span className="font-heading italic font-light text-forest/30">One Table.</span>
+            Every Buffet. <br />
+            <span className="font-heading italic font-light text-forest/30">Fully Detailed.</span>
           </h2>
           <p className="text-lg text-forest/60 font-light italic max-w-2xl leading-relaxed">
-            Our buffet spans the full width of our kitchen — which means every trip to the counter is a different journey. Expect rotating daily specials alongside our permanent favourites.
+            Here's exactly what's on every spread — no surprises, just great food prepared fresh at Hotel Peninsula Grand.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-forest/10 border border-forest/10">
-          {cuisines.map((c, i) => (
-            <div key={i} className="bg-cream p-10 md:p-12 hover:bg-sand transition-all duration-500 group">
-              <span className="text-[9px] font-bold uppercase tracking-[0.5em] text-forest/30 block mb-6">0{i + 1}</span>
-              <h3 className="text-2xl font-medium tracking-tight mb-4 group-hover:text-gold-muted transition-colors duration-500">{c.title}</h3>
-              <p className="text-sm font-light text-forest/60 leading-relaxed italic">{c.body}</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-forest/10 border border-forest/10">
+          {buffetDetails.map((b, i) => (
+            <div key={i} className={`p-10 md:p-12 flex flex-col gap-8 ${b.highlight ? 'bg-forest text-cream' : 'bg-cream text-forest hover:bg-sand'} transition-all duration-500 group`}>
+              <div className="flex items-start justify-between">
+                <div>
+                  <h3 className={`text-2xl font-medium tracking-tight mb-1 ${b.highlight ? 'text-cream' : 'group-hover:text-gold-muted'} transition-colors duration-500`}>{b.name}</h3>
+                  <p className={`text-[10px] font-bold uppercase tracking-[0.3em] ${b.highlight ? 'text-cream/50' : 'text-forest/40'}`}>{b.time}</p>
+                </div>
+                <div className="text-right shrink-0">
+                  <div className={`text-2xl font-medium tracking-tight ${b.highlight ? 'text-cream' : 'text-forest'}`}>{b.price}</div>
+                  <div className={`text-[9px] font-bold uppercase tracking-widest ${b.highlight ? 'text-gold-muted' : 'text-forest/30'}`}>{b.note}</div>
+                </div>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {b.items.map((item, j) => (
+                  <span key={j} className={`text-[10px] font-bold uppercase tracking-[0.25em] px-3 py-1.5 border ${b.highlight ? 'border-cream/20 text-cream/70' : 'border-forest/10 text-forest/50'}`}>
+                    {item}
+                  </span>
+                ))}
+              </div>
             </div>
           ))}
         </div>
